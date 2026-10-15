@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <title>Poker Lab — Offline Training</title>
+  <link rel="stylesheet" href="/style.css">
+  <script src="/ui.js" defer></script>
+</head>
+<body>
+<div class="shell">
+  <header class="topbar">
+    <div><div class="brand">♠ POKER<span>LAB</span></div><div class="eyebrow">LOCAL TRAINING SYSTEM <i class="live-dot"></i></div></div>
+    <div class="top-controls"><span class="offline">● OFFLINE</span><button id="reset" class="ghost small">セッションをリセット</button></div>
+  </header>
+  <main class="layout">
+    <section class="main-column">
+      <div class="summary"><div><span class="eyebrow">HEADS-UP · NO-LIMIT TEXAS HOLD'EM</span><h1>AIと戦い、判断を鍛える。</h1></div><div class="hand-no">HAND <strong id="hand-no">#1</strong></div></div>
+      <div class="felt-wrap">
+        <div class="felt">
+          <div class="seat opponent"><div class="seat-title">AI OPPONENT <span id="bot-position">BB</span></div><div id="bot-cards" class="cards"></div><div class="stack-label">STACK <strong id="bot-stack">200</strong></div></div>
+          <div class="center-pot"><div class="eyebrow">TOTAL POT</div><strong id="pot">3</strong><div class="pot-unit">CHIPS · BB = 2</div><div id="street" class="street">PREFLOP</div></div>
+          <div id="board" class="board"></div>
+          <div class="seat human"><div class="seat-title">YOU <span id="my-position">SB / BUTTON</span></div><div id="my-cards" class="cards"></div><div class="stack-label">STACK <strong id="my-stack">199</strong></div></div>
+        </div>
+      </div>
+      <section class="action-box">
+        <div class="action-title"><span id="message">読み込み中...</span><span id="to-call"></span></div>
+        <div id="actions" class="action-buttons"></div>
+        <div id="raise-tools" class="raise-tools" hidden><label for="raise-slider">レイズ後の合計額（このラウンド）: <strong id="raise-amount">—</strong></label><input id="raise-slider" type="range" step="1"><div class="range-line"><span id="raise-min"></span><span id="raise-max"></span></div><button id="raise-submit" class="primary">この額でレイズ</button></div>
+        <div id="status" role="status" class="status"></div>
+        <button id="new-hand" class="primary new-hand" hidden>次のハンドに進む →</button>
+      </section>
+      <div class="scope">これは独立した練習用ゲームです。オンラインポーカーサイトへの自動操作機能はありません。</div>
+    </section>
+    <aside class="sidebar">
+      <section class="panel stats"><div class="panel-head"><span class="eyebrow">SESSION</span><strong>対戦成績</strong></div><div class="numbers"><div><span>完了ハンド</span><strong id="played">0</strong></div><div><span>累積損益</span><strong id="net">+0</strong></div></div><div id="recent" class="recent"><span class="muted">まだ対戦履歴はありません。</span></div></section>
+      <section class="panel coach"><div class="panel-head"><span class="eyebrow">DECISION LAB</span><strong>判断の解析</strong></div><p class="hint">解析は相手の伏せ札を使わず、あなたがその時点で持っていた情報のみで計算します。</p><div id="coach"><span class="muted">アクションを選ぶと解析が表示されます。</span></div><p class="disclaimer">※ ランダムな相手カードに対する推定です。GTO、相手レンジ推定、レイズの正確なEVではありません。</p></section>
+      <section class="panel log"><div class="panel-head"><span class="eyebrow">HAND LOG</span><strong>行動履歴</strong></div><div id="log-body" class="log-rows"><span class="muted">まだアクションはありません。</span></div></section>
+    </aside>
+  </main>
+  <footer>POKER LAB v0.2 · RUNS ON 127.0.0.1 · NO ACCOUNTS · NO CLOUD COSTS</footer>
+</div>
+</body>
+</html>
